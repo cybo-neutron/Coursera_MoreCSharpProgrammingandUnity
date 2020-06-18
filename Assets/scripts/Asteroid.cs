@@ -53,6 +53,16 @@ public class Asteroid : MonoBehaviour
 
     }
 
-   
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if(collision.transform.CompareTag("bullet"))
+    //    {
+    //        Debug.Log("Bullet hit");
+    //        Destroy(this.gameObject,0.01f);
+    //    }
+    //}
+
+
 
 }

@@ -12,6 +12,10 @@ public class Ship : MonoBehaviour
     Vector2 thrustDirection = new Vector2(1, 0);
     const float ThrustForce = 10;
     const float RotateDegreesPerSecond = 180;
+    
+    public Transform bulletEmissionPt;
+    public GameObject bulletPrefab;
+    public float bulletSpeed;
 
     // screen wrapping support
     float colliderRadius;
@@ -47,6 +51,14 @@ public class Ship : MonoBehaviour
             thrustDirection.x = Mathf.Cos(zRotation);
             thrustDirection.y = Mathf.Sin(zRotation);
         }
+
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            Rigidbody2D bulletrb = Instantiate(bulletPrefab, bulletEmissionPt.position, transform.rotation).GetComponent<Rigidbody2D>();
+            bulletrb.AddForce(bulletSpeed * transform.right, ForceMode2D.Impulse);
+        }
+
+
 	}
 
     /// <summary>
